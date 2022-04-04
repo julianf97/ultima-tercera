@@ -1,0 +1,117 @@
+@import "../base/extend";
+@import "../base/maps";
+@import "../base/mixin";
+@import "../base/variables";
+
+@media (max-width: 540px) { 
+
+    .contenedor-main{
+
+        height: auto ;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        .contenedor-izquierdo{
+
+            background-color: #000;
+            margin-bottom: 1rem;
+            height: auto !important;
+            width: 99% !important;
+            display: flex;
+            align-items: flex-start !important;
+           .contenedor-fotocolo{
+                margin-top: 5rem;
+                width: 100% !important;
+                height: auto !important;
+                
+           }
+        }
+        .contenedor-derecho{
+
+            height: 50%;
+            width: 100% !important;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0.5rem;
+
+        }
+    }
+
+}
+.navbar-sobremi{
+
+    position: fixed;
+    top: -1rem;
+    width: 100%;
+    z-index: 800000;
+}
+
+.contenedor-main{
+    margin-top: 100px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border: 1px solid black;
+    background-color: rgb(0, 0, 0);
+    .contenedor-izquierdo{
+    @include contenedor-izquierdo-sobremi;
+    
+        .contenedor-fotocolo{
+
+                width: 90%;
+                height: 90%;
+                .fotocolo{@extend %logo-y-fotocolo;}
+        } 
+    }
+    .contenedor-derecho{@extend %contenedor-derecho-sobremi; 
+            
+        .contenedor-texto{
+    
+            margin: 1rem;
+            padding: 1rem;;
+            overflow: auto;
+            background-color: rgb(20, 20, 20);
+            
+            h2{
+                color: $blanco201;
+                text-align: center
+            }
+            p{
+
+                color: $blanco201
+            }
+        
+        }
+    
+    
+    }
+ }
+
+#contenedor-footer{ 
+    @include footer-todos;
+    i{    
+        color: map-get($footer-tipografia, letracolor);
+        text-decoration: map-get($footer-tipografia , decoracion );
+        font-size: map-get($footer-tipografia , tamañoletra );
+        margin: map-get($footer-tipografia , margenletra );
+    }
+    .fa-whatsapp:hover{
+    
+        color: #2CC64E;
+        transition: 0.3s;
+    
+    }
+    .fa-facebook-f:hover{
+        color: #1877F2;
+        transition: 0.3s;
+        
+    }
+    .fa-instagram:hover{
+        color: #CB44C3;
+        transition: 0.3s;
+    } 
+}
